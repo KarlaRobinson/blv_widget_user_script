@@ -120,6 +120,7 @@ window.onload = async function() {
     var id;
     var password;
     var token;
+    const env = api;
     const widget = document.createElement('script');
     widget.setAttribute('src', 'https://cdn.belvo.io/belvo-widget-1-stable.js');
     document.body.appendChild(widget);
@@ -143,12 +144,12 @@ window.onload = async function() {
             "scopes": "read_institutions,write_links,read_links"
         }
 
-        var widgetResponse = await fetch("https://sandbox.belvo.com/api/token/", {
+        var widgetResponse = await fetch("https://${env}.belvo.com/api/token/", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Host': 'sandbox.belvo.com'
+                'Host': '${env}.belvo.com'
             },
             body: JSON.stringify(widgetPayload)
         });
@@ -194,7 +195,7 @@ window.onload = async function() {
             body: JSON.stringify({ save_data: false, link: link })
         };
 
-        var accountsResponse = await fetch('https://sandbox.belvo.com/api/accounts/', options);
+        var accountsResponse = await fetch('https://${env}.belvo.com/api/accounts/', options);
         if (accountsResponse.status >= 400) {
             var accountsJson = await accountsResponse.json();
             console.error(JSON.stringify(accountsJson));
@@ -253,7 +254,7 @@ window.onload = async function() {
                         account: account.id
                     })
                 };
-                var transactionsResponse = await fetch('https://sandbox.belvo.com/api/transactions/', trannsactionsOptions);
+                var transactionsResponse = await fetch('https://${env}.belvo.com/api/transactions/', trannsactionsOptions);
                 if (transactionsResponse.status >= 400) {
                     var transactionsJson = await transactionsResponse.json();
                     console.error(JSON.stringify(transactionsJson));
