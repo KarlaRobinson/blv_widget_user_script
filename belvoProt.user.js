@@ -7,7 +7,7 @@
 // @run-at       document-start
 // @grant        GM_addStyle 
 // @grant        GM_xmlhttpRequest
-// @connect      sandbox.belvo.com
+// @connect      api.belvo.com
 // ==/UserScript==
 
 var baseCSS = `
@@ -138,6 +138,7 @@ window.onload = async function() {
         }
         var widgetPayload = {
             "id": id,
+            "link_id": "b11c5664-6111-46fa-8f79-b6ab0830dff8",
             "password": password,
             "scopes": "read_institutions,write_links,read_links"
         }
