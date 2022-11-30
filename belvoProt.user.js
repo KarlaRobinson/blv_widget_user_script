@@ -110,7 +110,7 @@ var baseHTML = `
             <button class="belvoButton" id="retrieveAccounts">Retrieve Accounts</button>
             <div id="accountsTableContainer"></div>
         </div>
-        <center><div id="belvoFooter"><p>Developed by Guilherme Tworkowski | v 0.1</div></center>
+        <center><div id="belvoFooter"><p>Developed by Gui</div></center>
     </div>
 `;
 
